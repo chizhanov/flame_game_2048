@@ -1,15 +1,15 @@
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:game_2048/game.dart';
 
-class TextGameButton extends TextComponent with Tappable {
+class TextGameButton extends TextComponent with TapCallbacks {
   final Paint paint = Paint();
   VoidCallback onTap;
   String buttonText;
   Color buttonColor, textColor;
   double fontSize;
   Vector2 buttonSize;
+
   TextGameButton({
     required this.buttonSize,
     required this.fontSize,
@@ -49,8 +49,8 @@ class TextGameButton extends TextComponent with Tappable {
   }
 
   @override
-  bool onTapDown(TapDownInfo info) {
+  void onTapDown(TapDownEvent event) {
     onTap();
-    return super.onTapDown(info);
+    super.onTapDown(event);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flame/events.dart';
 import 'package:game_2048/enums/movingDirection.dart';
 import 'package:game_2048/game.dart';
 import 'package:game_2048/shared/gameColors.dart';
@@ -7,7 +8,7 @@ import 'package:flame/input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/painting.dart';
 
-class GameButton extends PositionComponent with Tappable, HasGameRef<Game2048> {
+class GameButton extends PositionComponent with TapCallbacks, HasGameReference<Game2048> {
   final Paint paint = Paint()..color = bgColor;
   MovingDirection mergingDirection;
   String assetLocation;
@@ -38,9 +39,9 @@ class GameButton extends PositionComponent with Tappable, HasGameRef<Game2048> {
   }
 
   @override
-  bool onTapDown(TapDownInfo info) {
-    gameRef.gameModel.merge(mergingDirection: this.mergingDirection);
-    return super.onTapDown(info);
+  void onTapDown(TapDownEvent event) {
+    game.gameModel.merge(mergingDirection: this.mergingDirection);
+    super.onTapDown(event);
   }
 
   @override

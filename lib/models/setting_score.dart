@@ -6,6 +6,7 @@ class SettingsAndScoreModel extends GetxController {
   late bool soundActivated;
   int currentScore = 0;
   RxBool isInitialized = false.obs;
+
   SettingsAndScoreModel() {
     initialize();
   }
@@ -25,10 +26,15 @@ class SettingsAndScoreModel extends GetxController {
   }
 
   void setCurrentScore(int score) => currentScore = score;
+
   void resetCurrentScore() => currentScore = 0;
+
   void setHightestScore(int score) => highestScore = score;
+
   void setSoundVolume(int volume) => soundVolume = volume;
+
   void toggleSoudnActivation() => soundActivated = !soundActivated;
+
   Future<bool> saveSettings() async {
     try {
       final prefs = await SharedPreferences.getInstance();

@@ -1,10 +1,11 @@
-import 'package:game_2048/shared/gameColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:game_2048/shared/gameColors.dart';
 
 class MenuButton extends StatelessWidget {
   final String assetPath, buttonText;
   final VoidCallback onPressed;
+
   const MenuButton(
       {Key? key,
       required this.assetPath,

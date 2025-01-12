@@ -1,13 +1,14 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
 import 'package:game_2048/models/setting_score.dart';
 import 'package:game_2048/shared/app_audios.dart';
 import 'package:game_2048/shared/gameColors.dart';
 import 'package:game_2048/widgets/menu_button_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SoundScreen extends StatefulWidget {
   const SoundScreen({Key? key}) : super(key: key);
+
   @override
   State<SoundScreen> createState() => _SoundScreenState();
 }
@@ -17,6 +18,7 @@ class _SoundScreenState extends State<SoundScreen> {
   final player = AudioPlayer();
   int currentVolume = 0;
   late bool soundActivated;
+
   @override
   void initState() {
     super.initState();

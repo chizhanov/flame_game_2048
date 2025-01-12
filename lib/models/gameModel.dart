@@ -1,10 +1,11 @@
 import 'dart:math';
+
+import 'package:flame/extensions.dart';
 import 'package:game_2048/components/gameTile.dart';
 import 'package:game_2048/enums/movingDirection.dart';
 import 'package:game_2048/game.dart';
 import 'package:game_2048/models/setting_score.dart';
 import 'package:game_2048/models/tileModel.dart';
-import 'package:flame/extensions.dart';
 import 'package:get/get.dart';
 
 class GameModel {
@@ -14,6 +15,7 @@ class GameModel {
   bool gameChanged = false;
   int currentScore = 0, currentMaxTileValue = 0;
   late final SettingsAndScoreModel settingsAndScoreModel;
+
   GameModel({required this.cols, required this.rows, required this.gameRef}) {
     List<GameTile> tempList = [];
     for (var i = 0; i < rows; i++) {

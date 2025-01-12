@@ -1,7 +1,7 @@
-import 'package:game_2048/game.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game_2048/game.dart';
 import 'package:get/get.dart';
 
 Game2048 _game2048 = Game2048(rows: 4, cols: 4);

@@ -1,6 +1,8 @@
+import 'package:flame/events.dart';
 import 'package:flame/extensions.dart';
+import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flame_audio/audio_pool.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:game_2048/components/background.dart';
 import 'package:game_2048/components/gameButton.dart';
 import 'package:game_2048/components/score_component.dart';
@@ -8,26 +10,27 @@ import 'package:game_2048/components/text_game_button.dart';
 import 'package:game_2048/enums/movingDirection.dart';
 import 'package:game_2048/enums/score_type.dart';
 import 'package:game_2048/models/gameModel.dart';
-import 'package:flame/game.dart';
-import 'package:flame/input.dart';
 import 'package:game_2048/shared/app_audios.dart';
 import 'package:game_2048/shared/gameColors.dart';
 
-class Game2048 extends FlameGame with PanDetector, HasTappables {
+class Game2048 extends FlameGame with PanDetector {
   late GameModel gameModel;
   final int cols, rows;
   late TextGameButton newGameButton;
   late Map<int, AudioPool> sfxPool = Map<int, AudioPool>();
+
   Game2048({
     required this.rows,
     required this.cols,
   });
+
   late GameButton rightButton, leftButton, upButton, downButton;
   late GameBackground bg;
   late Vector2 bgTopLeftCorner;
   bool swipingInTiles = false;
   double buttonSidelength = 70.0;
   late ScoreComponent currentScoreComponent;
+
   @override
   Future<void> onLoad() async {
     // final audioPlayers = await FlameAudio.play('16.mp3');
@@ -119,10 +122,11 @@ class Game2048 extends FlameGame with PanDetector, HasTappables {
   @override
   void onPanUpdate(DragUpdateInfo info) {
     super.onPanUpdate(info);
-    if (info.eventPosition.game.x >= bgTopLeftCorner.x &&
-        info.eventPosition.game.x < bgTopLeftCorner.x + bg.size.x &&
-        info.eventPosition.game.y > bgTopLeftCorner.y &&
-        info.eventPosition.game.y < bgTopLeftCorner.y + bg.size.y)
+
+    if (info.eventPosition.widget.x >= bgTopLeftCorner.x &&
+        info.eventPosition.widget.x < bgTopLeftCorner.x + bg.size.x &&
+        info.eventPosition.widget.y > bgTopLeftCorner.y &&
+        info.eventPosition.widget.y < bgTopLeftCorner.y + bg.size.y)
       swipingInTiles = true;
     // print("On Pan update called : ${info.eventPosition.game}");
   }

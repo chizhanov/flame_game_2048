@@ -1,8 +1,8 @@
-import 'package:game_2048/game.dart';
-import 'package:game_2048/shared/gameColors.dart';
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flutter/painting.dart';
+import 'package:game_2048/game.dart';
+import 'package:game_2048/shared/gameColors.dart';
 
 class GameBackground extends Component with HasGameRef<Game2048> {
   final Vector2 center, size;
@@ -11,6 +11,7 @@ class GameBackground extends Component with HasGameRef<Game2048> {
     required this.center,
     required this.size,
   });
+
   @override
   void render(Canvas canvas) {
     super.render(canvas);

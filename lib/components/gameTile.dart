@@ -1,13 +1,11 @@
-import 'package:flame_audio/flame_audio.dart';
-import 'package:game_2048/enums/movingDirection.dart';
-import 'package:game_2048/game.dart';
-import 'package:game_2048/models/tileModel.dart';
-import 'package:game_2048/shared/app_audios.dart';
-import 'package:game_2048/shared/gameColors.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:game_2048/enums/movingDirection.dart';
+import 'package:game_2048/game.dart';
+import 'package:game_2048/models/tileModel.dart';
+import 'package:game_2048/shared/gameColors.dart';
 
 class GameTile extends PositionComponent
     with ParentIsA<Game2048>
@@ -16,6 +14,7 @@ class GameTile extends PositionComponent
   late TextPaint textPaint;
   EffectController moveEffectController = EffectController(duration: .1),
       scaleEffectController = EffectController(duration: .1);
+
   GameTile(
       {required Vector2 size,
       required this.tileModel,
@@ -124,5 +123,6 @@ class GameTile extends PositionComponent
   }
 
   bool isEmpty() => tileModel.isEmpty();
+
   void reset() => tileModel.reset();
 }

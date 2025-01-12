@@ -1,11 +1,10 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:game_2048/models/setting_score.dart';
 import 'package:game_2048/shared/app_audios.dart';
 import 'package:game_2048/shared/gameColors.dart';
 import 'package:game_2048/widgets/menu_button_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class MainMenuScreen extends StatefulWidget {
@@ -18,6 +17,7 @@ class MainMenuScreen extends StatefulWidget {
 class _MainMenuScreenState extends State<MainMenuScreen> {
   final player = AudioPlayer();
   final SettingsAndScoreModel settingsModel = Get.find<SettingsAndScoreModel>();
+
   @override
   void initState() {
     super.initState();

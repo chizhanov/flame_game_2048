@@ -1,6 +1,7 @@
 class TileModel {
   int value;
   bool merged = false;
+
   TileModel({required this.value});
 
   bool merge({required TileModel tileModel}) {

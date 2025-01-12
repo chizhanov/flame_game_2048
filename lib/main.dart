@@ -1,14 +1,11 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:flame/flame.dart';
-import 'package:flame_audio/audio_pool.dart';
+import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/material.dart';
 import 'package:game_2048/models/home_bindings.dart';
 import 'package:game_2048/screens/game_play_screen.dart';
 import 'package:game_2048/screens/main_menu_screen.dart';
 import 'package:game_2048/screens/sound_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:game_2048/shared/app_audios.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:flame_audio/flame_audio.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
